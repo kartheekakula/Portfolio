@@ -25,8 +25,9 @@ function showGallery(category) {
             assetCard.className = 'asset-frame clickable-asset';
             assetCard.onclick = () => openLightbox(`p${i}.jpg`, 'image');
             
+            // Dynamic fallback template for case-sensitive server environments
             assetCard.innerHTML = `
-                <img src="p${i}.jpg" alt="Capture Asset ${i}" onerror="this.parentNode.innerHTML='<span class=\\'placeholder-text\\'>[ CAPTURE ASSET p${i} ]</span>'">
+                <img src="p${i}.jpg" alt="Capture Asset ${i}" onerror="this.onerror=null; this.src='p${i}.JPG';">
                 <div class="asset-hover-tag">VIEW CAPTURE // 0${i}</div>
             `;
             mediaContainer.appendChild(assetCard);
