@@ -628,3 +628,141 @@ html, body {
 .table-inline-link:hover {
     text-decoration: underline;
 }
+/* ==========================================================================
+   MOBILE & TABLET OPTIMIZATION ENGINE (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Global Frame & Layout Resets */
+    .crt-screen-frame {
+        padding: 15px !important;
+        overflow-y: auto !important; /* Allows smooth scrolling down on phones */
+        height: auto !important;
+        min-height: 100vh;
+    }
+
+    .screen-page {
+        padding: 10px 0 !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    /* Quick utility to hide desktop-only meta text */
+    .mob-hide {
+        display: none !important;
+    }
+
+    /* 2. Page 1: Hero Suite Scaling */
+    .logo-text {
+        font-size: 3.2rem !important; /* Scales down the massive text to fit screen boundaries */
+        letter-spacing: -1px !important;
+        line-height: 1.1;
+    }
+
+    .hero-centerpiece {
+        margin: 40px 0 !important;
+        text-align: center;
+    }
+
+    .intro-blurb {
+        font-size: 1.1rem !important;
+    }
+
+    .interactive-center-dock {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .action-pill {
+        width: 100% !important;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* 3. Page 2: Experience & Metrics Layout */
+    .experience-workspace {
+        grid-template-columns: 1fr !important; /* Stacks story and metrics into a single row */
+        gap: 35px !important;
+    }
+
+    .story-bullet-points p {
+        font-size: 1.15rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Creates a horizontal swipe wrapper so your metrics table doesn't break boundaries */
+    .table-scroll-wrapper {
+        width: 100%;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .matrix-table th, .matrix-table td {
+        padding: 10px !important;
+        font-size: 0.85rem !important;
+        white-space: nowrap; /* Keeps metric details cleanly on single lines */
+    }
+
+    /* 4. Page 3: Creativity Hub Layout */
+    .hub-container {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .directory-list {
+        width: 100% !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .directory-item {
+        flex: 1 1 calc(50% - 10px);
+        font-size: 0.95rem !important;
+        padding: 12px !important;
+        text-align: center;
+    }
+
+    /* Converts media grid into 2 perfect columns on mobile viewports */
+    .media-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    /* 5. Page 4: Communication Suite */
+    .terminal-alert-box h2 {
+        font-size: 1.6rem !important;
+    }
+
+    .terminal-alert-box p {
+        font-size: 1.05rem !important;
+        padding: 0 !important;
+    }
+
+    .cta-action-dock {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 6. Structural Meta Headers/Footers */
+    .page-header-meta, .page-footer-meta {
+        flex-direction: column !important;
+        gap: 8px;
+        text-align: center !important;
+        font-size: 0.75rem !important;
+    }
+
+    .page-header-meta *, .page-footer-meta * {
+        text-align: center !important;
+    }
+
+    .nav-back-btn, .inline-pill {
+        width: 100% !important;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
