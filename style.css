@@ -629,140 +629,197 @@ html, body {
     text-decoration: underline;
 }
 /* ==========================================================================
-   MOBILE & TABLET OPTIMIZATION ENGINE (MAX-WIDTH: 768px)
+   MOBILE & PORTRAIT VIEWPORT REMASTER ENGINE (MAX-WIDTH: 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
     
-    /* 1. Global Frame & Layout Resets */
-    .crt-screen-frame {
-        padding: 15px !important;
-        overflow-y: auto !important; /* Allows smooth scrolling down on phones */
+    /* 1. Global Document Restructuring */
+    html, body {
         height: auto !important;
-        min-height: 100vh;
+        overflow-y: auto !important;
+    }
+
+    .crt-screen-frame {
+        padding: 16px 12px !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow-y: visible !important;
     }
 
     .screen-page {
-        padding: 10px 0 !important;
+        position: relative !important;
         height: auto !important;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
+        min-height: calc(100vh - 80px) !important;
+        display: none !important; /* Managed dynamically by app.js switcher */
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        gap: 30px !important;
+        padding: 40px 0 !important;
     }
 
-    /* Quick utility to hide desktop-only meta text */
+    /* Force active view block to register dynamically */
+    .screen-page.active-page {
+        display: flex !important;
+    }
+
+    /* Target utility to strip desktop decorations */
     .mob-hide {
         display: none !important;
     }
 
-    /* 2. Page 1: Hero Suite Scaling */
-    .logo-text {
-        font-size: 3.2rem !important; /* Scales down the massive text to fit screen boundaries */
-        letter-spacing: -1px !important;
-        line-height: 1.1;
+    /* 2. Meta Interfaces Formatting (Header / Footer Rows) */
+    .page-header-meta, .page-footer-meta {
+        position: relative !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 0 !important;
+        text-align: center !important;
     }
 
+    .page-header-meta *, .page-footer-meta * {
+        text-align: center !important;
+        float: none !important;
+    }
+
+    .nav-back-btn, .inline-pill {
+        width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        padding: 12px 20px !important;
+        margin: 5px 0 !important;
+    }
+
+    /* 3. Hero Suite Layout Refinements */
     .hero-centerpiece {
-        margin: 40px 0 !important;
-        text-align: center;
+        margin: auto 0 !important;
+        padding: 20px 0 !important;
+        text-align: center !important;
+        width: 100% !important;
     }
 
-    .intro-blurb {
-        font-size: 1.1rem !important;
+    .logo-text {
+        font-size: 2.8rem !important;
+        letter-spacing: -1px !important;
+        line-height: 1.1 !important;
     }
 
     .interactive-center-dock {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+        margin-top: 20px !important;
     }
 
     .action-pill {
         width: 100% !important;
-        text-align: center;
-        box-sizing: border-box;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        padding: 14px 24px !important;
     }
 
-    /* 3. Page 2: Experience & Metrics Layout */
+    /* 4. Experience Engine & Metrics Table Re-Grid */
     .experience-workspace {
-        grid-template-columns: 1fr !important; /* Stacks story and metrics into a single row */
-        gap: 35px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 32px !important;
+        min-height: auto !important;
+        width: 100% !important;
+    }
+
+    .story-column {
+        width: 100% !important;
+        gap: 16px !important;
     }
 
     .story-bullet-points p {
-        font-size: 1.15rem !important;
+        font-size: 1.1rem !important;
         line-height: 1.5 !important;
     }
 
-    /* Creates a horizontal swipe wrapper so your metrics table doesn't break boundaries */
+    /* Horizontal swipe vault for enterprise values matrix */
     .table-scroll-wrapper {
-        width: 100%;
+        width: 100% !important;
         overflow-x: auto !important;
+        display: block !important;
         -webkit-overflow-scrolling: touch;
-        border: 1px solid rgba(0,0,0,0.1);
+        border: 1px dashed rgba(0, 0, 0, 0.15) !important;
+        background: rgba(255, 255, 255, 0.6) !important;
+        backdrop-filter: blur(4px);
+    }
+
+    .matrix-table {
+        width: 100% !important;
+        min-width: 500px !important; /* Retains text clarity by preventing compression */
     }
 
     .matrix-table th, .matrix-table td {
-        padding: 10px !important;
+        padding: 12px 10px !important;
         font-size: 0.85rem !important;
-        white-space: nowrap; /* Keeps metric details cleanly on single lines */
     }
 
-    /* 4. Page 3: Creativity Hub Layout */
+    /* 5. Creativity Hub Structural Corrections */
     .hub-container {
+        display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 24px !important;
+        width: 100% !important;
     }
 
     .directory-list {
         width: 100% !important;
         flex-direction: row !important;
-        flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px !important;
     }
 
     .directory-item {
-        flex: 1 1 calc(50% - 10px);
-        font-size: 0.95rem !important;
-        padding: 12px !important;
-        text-align: center;
+        flex: 1 !important;
+        font-size: 0.85rem !important;
+        padding: 10px 6px !important;
+        white-space: nowrap !important;
     }
 
-    /* Converts media grid into 2 perfect columns on mobile viewports */
+    .gallery-drawer {
+        width: 100% !important;
+    }
+
+    /* Transform media architecture into balanced grid paths */
     .media-row {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
+        gap: 10px !important;
+        max-height: none !important;
     }
 
-    /* 5. Page 4: Communication Suite */
+    /* 6. Communication Suite Framework */
+    .contact-workspace {
+        min-height: auto !important;
+        padding: 20px 0 !important;
+        width: 100% !important;
+    }
+
     .terminal-alert-box h2 {
-        font-size: 1.6rem !important;
+        font-size: 1.5rem !important;
     }
 
     .terminal-alert-box p {
-        font-size: 1.05rem !important;
-        padding: 0 !important;
+        font-size: 1rem !important;
     }
 
-    .cta-action-dock {
-        width: 100% !important;
-        max-width: 100% !important;
+    .connectivity-terminal-zone {
+        padding: 12px !important;
     }
-
-    /* 6. Structural Meta Headers/Footers */
-    .page-header-meta, .page-footer-meta {
+    
+    .connectivity-terminal-zone div {
         flex-direction: column !important;
-        gap: 8px;
-        text-align: center !important;
-        font-size: 0.75rem !important;
-    }
-
-    .page-header-meta *, .page-footer-meta * {
-        text-align: center !important;
-    }
-
-    .nav-back-btn, .inline-pill {
-        width: 100% !important;
-        box-sizing: border-box;
-        text-align: center;
+        gap: 10px !important;
     }
 }
