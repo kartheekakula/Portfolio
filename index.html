@@ -11,7 +11,7 @@
     <style>
         /* Responsive Overrides to ensure pristine mobile display */
         @media (max-width: 768px) {
-            /* Fix the grid container to stack vertically and show both columns */
+            /* Fix the grid container to stack vertically and show both columns cleanly */
             .experience-workspace {
                 display: flex !important;
                 flex-direction: column !important;
@@ -23,7 +23,7 @@
                 box-sizing: border-box !important;
             }
             
-            /* Ensure both blocks take up their own natural space and are fully visible */
+            /* Clean up sizing and visibility for mobile stacking */
             .story-column, .index-column {
                 display: flex !important;
                 flex-direction: column !important;
@@ -34,14 +34,9 @@
                 background-color: #f2efe9 !important;
             }
             
-            /* Clean up typography scales for tight viewports */
             .human-bio-paragraph {
                 font-size: 0.85rem !important;
                 line-height: 1.4 !important;
-            }
-            .story-bullet-points p {
-                font-size: 0.85rem !important;
-                line-height: 1.35 !important;
             }
             
             /* Table formatting fixes for mobile viewports */
@@ -124,62 +119,25 @@
                 <button class="nav-back-btn" onclick="showPage('home')">← RETURN HOME</button>
             </div>
 
-            <div class="experience-workspace">
+            <div class="experience-workspace" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; padding: 5px 0; height: calc(100vh - 160px); box-sizing: border-box; position: relative; z-index: 6;">
                 
-                <div class="story-column">
+                <div class="story-column" style="display: flex; flex-direction: column; gap: 10px; background-color: #f2efe9; padding: 15px; border: 1px dashed rgba(0, 0, 0, 0.15); overflow-y: auto; max-height: 100%;">
                     <h2 class="section-glitch-title" style="font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; color: #ff5376; border-bottom: 1px dashed rgba(0,0,0,0.2); padding-bottom: 6px; margin: 0;">
                         // OPERATIONAL DIRECTIVE: THE ARCHITECTURE OF A BUILDER
                     </h2>
                     
-                    <div class="human-bio-paragraph" style="color: #000; font-weight: 500; padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.15); margin-bottom: 2px;">
+                    <div class="human-bio-paragraph" style="color: #000; font-weight: 500; padding: 8px 0; font-size: 0.95rem; line-height: 1.45; margin-bottom: 2px;">
                         I'm Kartheek — a media builder and editor based out of VIT-AP. I don't just make content; I think about why it should exist, build it, and figure out how to get it in front of people. I've helped grow an Instagram page past 1M views, built an AI tool from scratch, and pitched at IIT Bombay's E-Summit. I'm looking to work with brands and creators who care about the quality of what they put out.
-                    </div>
-                    
-                    <div class="story-bullet-points" style="display: flex; flex-direction: column; gap: 10px;">
-                        <div style="display: flex; align-items: flex-start; gap: 8px;">
-                            <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="color: #000000; margin: 0; font-weight: 500;">
-                                <strong>Core Focus:</strong> I bridge strategic ideation and premium visual assets. I don't just edit, I focus on building engaging media concepts.
-                            </p>
-                        </div>
-
-                        <div style="display: flex; align-items: flex-start; gap: 8px;">
-                            <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="color: #000000; margin: 0; font-weight: 500;">
-                                <strong>Media Scale:</strong> Co-run a collaborative Instagram editing page alongside two friends, featuring curated content created by all three of us that has collectively secured over <strong>1M+ views</strong>.
-                            </p>
-                        </div>
-
-                        <div style="display: flex; align-items: flex-start; gap: 8px;">
-                            <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="color: #000000; margin: 0; font-weight: 500;">
-                                <strong>AI Production:</strong> Developed <em>CUTOUT</em>, an image and video background removal asset. It was fast-tracked and vibe-coded, and is currently under maintenance.
-                            </p>
-                        </div>
-
-                        <div style="display: flex; align-items: flex-start; gap: 8px;">
-                            <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="color: #000000; margin: 0; font-weight: 500;">
-                                <strong>Leadership:</strong> Keeping the internal engine running as Community Manager for the Entrepreneurship Club at VIT-AP.
-                            </p>
-                        </div>
-
-                        <div style="display: flex; align-items: flex-start; gap: 8px;">
-                            <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="color: #000000; margin: 0; font-weight: 500;">
-                                <strong>Venture Track:</strong> Finalist at the <strong>IIT Bombay E-Summit 2025</strong>. Competed against startup teams nationwide to secure a spot in the national finals. Currently developing a new sustainable lifestyle venture from the ground up, currently navigating its initial ideation phases.
-                            </p>
-                        </div>
                     </div>
                 </div>
 
-                <div class="index-column">
+                <div class="index-column" style="display: flex; flex-direction: column; background-color: #f2efe9; padding: 15px; border: 1px dashed rgba(0, 0, 0, 0.15); max-height: 100%; box-sizing: border-box;">
                     <div style="display: flex; flex-direction: column; height: 100%;">
                         <h2 class="section-glitch-title" style="font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; color: #ff5376; border-bottom: 1px dashed rgba(0,0,0,0.2); padding-bottom: 6px; margin-bottom: 10px;">
                             // METRICS
                         </h2>
-                        <div class="table-scroll-wrapper">
-                            <table class="matrix-table" style="border-collapse: collapse; text-align: left;">
+                        <div class="table-scroll-wrapper" style="overflow-y: auto; flex-grow: 1; max-height: calc(100vh - 240px);">
+                            <table class="matrix-table" style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;">
                                 <thead>
                                     <tr style="background: rgba(0,0,0,0.03); position: sticky; top: 0; background: #f2efe9; z-index: 2;">
                                         <th style="padding: 8px; border: 1px solid rgba(0,0,0,0.1); color: #555; width: 35%;">PROJECT // METRIC</th>
