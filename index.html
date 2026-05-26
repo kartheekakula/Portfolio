@@ -9,74 +9,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Responsive Overrides to perfectly handle mobile layout constraints */
+        /* Responsive Overrides to ensure pristine mobile display */
         @media (max-width: 768px) {
-            /* 1. Prevent headers and return buttons from clashing */
-            .page-header-meta {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 8px !important;
-                text-align: center !important;
-                height: auto !important;
-                padding-bottom: 10px !important;
-            }
-            .page-header-meta .meta-block {
-                text-align: center !important;
-            }
-            .nav-back-btn {
-                position: relative !important;
-                margin-top: 5px !important;
-                width: 100% !important;
-                text-align: center !important;
-            }
-
-            /* 2. Adjust background image position so it frames better on mobile phones */
-            .bg-portrait {
-                object-position: center 20% !important;
-                height: 100% !important;
-                width: auto !important;
-                max-width: 150% !important;
-            }
-
-            /* 3. Stack columns cleanly instead of squeezing them horizontally */
+            /* Fix the grid container to stack vertically and show both columns */
             .experience-workspace {
-                grid-template-columns: 1fr !important;
+                display: flex !important;
+                flex-direction: column !important;
                 height: auto !important;
-                max-height: calc(100vh - 210px) !important;
+                max-height: calc(100vh - 200px) !important;
                 overflow-y: auto !important;
-                gap: 15px !important;
-                margin-top: 10px !important;
+                gap: 20px !important;
+                padding: 10px 5px !important;
+                box-sizing: border-box !important;
             }
+            
+            /* Ensure both blocks take up their own natural space and are fully visible */
             .story-column, .index-column {
+                display: flex !important;
+                flex-direction: column !important;
+                height: auto !important;
                 max-height: none !important;
-                padding: 12px !important;
+                flex-shrink: 0 !important;
+                padding: 15px !important;
+                background-color: #f2efe9 !important;
             }
+            
+            /* Clean up typography scales for tight viewports */
             .human-bio-paragraph {
                 font-size: 0.85rem !important;
+                line-height: 1.4 !important;
             }
             .story-bullet-points p {
                 font-size: 0.85rem !important;
+                line-height: 1.35 !important;
             }
+            
+            /* Table formatting fixes for mobile viewports */
             .table-scroll-wrapper {
                 max-height: none !important;
                 overflow-x: auto !important;
             }
             .matrix-table {
                 font-size: 0.75rem !important;
+                width: 100% !important;
             }
             .matrix-table th, .matrix-table td {
                 padding: 6px !important;
             }
             
-            /* Adjust the footer placement to give breathing room */
-            .page-footer-meta {
+            /* Structure headers and footers beautifully */
+            .page-header-meta, .page-footer-meta {
                 flex-direction: column !important;
-                gap: 6px !important;
+                align-items: center !important;
+                gap: 8px !important;
                 text-align: center !important;
+                height: auto !important;
             }
-            .page-footer-meta .meta-block {
+            .page-header-meta .meta-block, .page-footer-meta .meta-block {
                 text-align: center !important;
                 margin-right: 0 !important;
+            }
+            .nav-back-btn {
+                position: relative !important;
+                width: 100% !important;
+                text-align: center !important;
             }
         }
     </style>
@@ -128,62 +124,62 @@
                 <button class="nav-back-btn" onclick="showPage('home')">← RETURN HOME</button>
             </div>
 
-            <div class="experience-workspace" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; padding: 5px 0; height: calc(100vh - 160px); box-sizing: border-box; position: relative; z-index: 6;">
+            <div class="experience-workspace">
                 
-                <div class="story-column" style="display: flex; flex-direction: column; gap: 10px; background-color: #f2efe9; padding: 15px; border: 1px dashed rgba(0, 0, 0, 0.15); overflow-y: auto; max-height: 100%;">
+                <div class="story-column">
                     <h2 class="section-glitch-title" style="font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; color: #ff5376; border-bottom: 1px dashed rgba(0,0,0,0.2); padding-bottom: 6px; margin: 0;">
                         // OPERATIONAL DIRECTIVE: THE ARCHITECTURE OF A BUILDER
                     </h2>
                     
-                    <div class="human-bio-paragraph" style="font-size: 0.95rem; line-height: 1.4; color: #000; font-weight: 500; padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.15); margin-bottom: 2px;">
+                    <div class="human-bio-paragraph" style="color: #000; font-weight: 500; padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.15); margin-bottom: 2px;">
                         I'm Kartheek — a media builder and editor based out of VIT-AP. I don't just make content; I think about why it should exist, build it, and figure out how to get it in front of people. I've helped grow an Instagram page past 1M views, built an AI tool from scratch, and pitched at IIT Bombay's E-Summit. I'm looking to work with brands and creators who care about the quality of what they put out.
                     </div>
                     
                     <div class="story-bullet-points" style="display: flex; flex-direction: column; gap: 10px;">
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="font-size: 0.95rem; line-height: 1.35; color: #000000; margin: 0; font-weight: 500;">
+                            <p style="color: #000000; margin: 0; font-weight: 500;">
                                 <strong>Core Focus:</strong> I bridge strategic ideation and premium visual assets. I don't just edit, I focus on building engaging media concepts.
                             </p>
                         </div>
 
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="font-size: 0.95rem; line-height: 1.35; color: #000000; margin: 0; font-weight: 500;">
+                            <p style="color: #000000; margin: 0; font-weight: 500;">
                                 <strong>Media Scale:</strong> Co-run a collaborative Instagram editing page alongside two friends, featuring curated content created by all three of us that has collectively secured over <strong>1M+ views</strong>.
                             </p>
                         </div>
 
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="font-size: 0.95rem; line-height: 1.35; color: #000000; margin: 0; font-weight: 500;">
+                            <p style="color: #000000; margin: 0; font-weight: 500;">
                                 <strong>AI Production:</strong> Developed <em>CUTOUT</em>, an image and video background removal asset. It was fast-tracked and vibe-coded, and is currently under maintenance.
                             </p>
                         </div>
 
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="font-size: 0.95rem; line-height: 1.35; color: #000000; margin: 0; font-weight: 500;">
+                            <p style="color: #000000; margin: 0; font-weight: 500;">
                                 <strong>Leadership:</strong> Keeping the internal engine running as Community Manager for the Entrepreneurship Club at VIT-AP.
                             </p>
                         </div>
 
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <span style="color: #ff5376; font-size: 0.8rem; margin-top: 2px;">▶</span>
-                            <p style="font-size: 0.95rem; line-height: 1.35; color: #000000; margin: 0; font-weight: 500;">
+                            <p style="color: #000000; margin: 0; font-weight: 500;">
                                 <strong>Venture Track:</strong> Finalist at the <strong>IIT Bombay E-Summit 2025</strong>. Competed against startup teams nationwide to secure a spot in the national finals. Currently developing a new sustainable lifestyle venture from the ground up, currently navigating its initial ideation phases.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="index-column" style="display: flex; flex-direction: column; background-color: #f2efe9; padding: 15px; border: 1px dashed rgba(0, 0, 0, 0.15); max-height: 100%; box-sizing: border-box;">
+                <div class="index-column">
                     <div style="display: flex; flex-direction: column; height: 100%;">
                         <h2 class="section-glitch-title" style="font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; color: #ff5376; border-bottom: 1px dashed rgba(0,0,0,0.2); padding-bottom: 6px; margin-bottom: 10px;">
                             // METRICS
                         </h2>
-                        <div class="table-scroll-wrapper" style="overflow-y: auto; flex-grow: 1; max-height: calc(100vh - 240px);">
-                            <table class="matrix-table" style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;">
+                        <div class="table-scroll-wrapper">
+                            <table class="matrix-table" style="border-collapse: collapse; text-align: left;">
                                 <thead>
                                     <tr style="background: rgba(0,0,0,0.03); position: sticky; top: 0; background: #f2efe9; z-index: 2;">
                                         <th style="padding: 8px; border: 1px solid rgba(0,0,0,0.1); color: #555; width: 35%;">PROJECT // METRIC</th>
@@ -264,7 +260,7 @@
             <div class="page-footer-meta" style="position: relative; z-index: 5;">
                 <div class="meta-block text-left">ARCHIVE LOG ENGINE // STAGE_02</div>
                 <button class="action-pill inline-pill" style="font-size: 0.85rem; padding: 6px 16px; font-weight: 800;" onclick="showPage('hub')">
-                    VIEW CREATIVE HUB ↗
+                    VIEW CREATIVE HUB
                 </button>
                 <div class="meta-block text-right">AUTHENTICATED USER METRICS // 2026</div>
             </div>
@@ -295,7 +291,7 @@
 
             <div class="page-footer-meta">
                 <div class="meta-block text-left">WORK INDEX</div>
-                <button class="action-pill inline-pill" style="font-size: 0.9rem; padding: 8px 18px; font-weight: 800;" onclick="showPage('contact')">CONNECT NOW ↗</button>
+                <button class="action-pill inline-pill" style="font-size: 0.9rem; padding: 8px 18px; font-weight: 800;" onclick="showPage('contact')">CONNECT NOW</button>
                 <div class="meta-block text-right">DIRECTORY // END</div>
             </div>
         </section>
