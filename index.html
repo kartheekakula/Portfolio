@@ -8,6 +8,78 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Responsive Overrides to perfectly handle mobile layout constraints */
+        @media (max-width: 768px) {
+            /* 1. Prevent headers and return buttons from clashing */
+            .page-header-meta {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 8px !important;
+                text-align: center !important;
+                height: auto !important;
+                padding-bottom: 10px !important;
+            }
+            .page-header-meta .meta-block {
+                text-align: center !important;
+            }
+            .nav-back-btn {
+                position: relative !important;
+                margin-top: 5px !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            /* 2. Adjust background image position so it frames better on mobile phones */
+            .bg-portrait {
+                object-position: center 20% !important;
+                height: 100% !important;
+                width: auto !important;
+                max-width: 150% !important;
+            }
+
+            /* 3. Stack columns cleanly instead of squeezing them horizontally */
+            .experience-workspace {
+                grid-template-columns: 1fr !important;
+                height: auto !important;
+                max-height: calc(100vh - 210px) !important;
+                overflow-y: auto !important;
+                gap: 15px !important;
+                margin-top: 10px !important;
+            }
+            .story-column, .index-column {
+                max-height: none !important;
+                padding: 12px !important;
+            }
+            .human-bio-paragraph {
+                font-size: 0.85rem !important;
+            }
+            .story-bullet-points p {
+                font-size: 0.85rem !important;
+            }
+            .table-scroll-wrapper {
+                max-height: none !important;
+                overflow-x: auto !important;
+            }
+            .matrix-table {
+                font-size: 0.75rem !important;
+            }
+            .matrix-table th, .matrix-table td {
+                padding: 6px !important;
+            }
+            
+            /* Adjust the footer placement to give breathing room */
+            .page-footer-meta {
+                flex-direction: column !important;
+                gap: 6px !important;
+                text-align: center !important;
+            }
+            .page-footer-meta .meta-block {
+                text-align: center !important;
+                margin-right: 0 !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -191,12 +263,11 @@
 
             <div class="page-footer-meta" style="position: relative; z-index: 5;">
                 <div class="meta-block text-left">ARCHIVE LOG ENGINE // STAGE_02</div>
-                <div class="meta-block text-right" style="margin-right: 180px;">AUTHENTICATED USER METRICS // 2026</div>
+                <button class="action-pill inline-pill" style="font-size: 0.85rem; padding: 6px 16px; font-weight: 800;" onclick="showPage('hub')">
+                    VIEW CREATIVE HUB ↗
+                </button>
+                <div class="meta-block text-right">AUTHENTICATED USER METRICS // 2026</div>
             </div>
-
-            <button class="action-pill" onclick="showPage('contact')" style="position: fixed; bottom: 25px; right: 25px; z-index: 99; font-size: 0.95rem; padding: 12px 24px; font-weight: 800; background: #ff5376; color: #fff; border: 1px solid #ff5376; box-shadow: 0 4px 15px rgba(255, 83, 118, 0.35); cursor: pointer; letter-spacing: 1px; transition: transform 0.2s ease;">
-                CONNECT NOW ↗
-            </button>
         </section>
 
         <section class="screen-page" id="hub">
@@ -224,7 +295,7 @@
 
             <div class="page-footer-meta">
                 <div class="meta-block text-left">WORK INDEX</div>
-                <button class="action-pill inline-pill" style="font-size: 1.1rem; padding: 12px 24px; font-weight: 800;" onclick="showPage('contact')">CONNECT NOW</button>
+                <button class="action-pill inline-pill" style="font-size: 0.9rem; padding: 8px 18px; font-weight: 800;" onclick="showPage('contact')">CONNECT NOW ↗</button>
                 <div class="meta-block text-right">DIRECTORY // END</div>
             </div>
         </section>
@@ -246,9 +317,6 @@
                     <p style="font-size: 1.15rem; line-height: 1.6; color: #333; margin: 0; font-weight: 500;">
                         If you need content that actually gets watched, let's talk.
                     </p>
-                </div>
-
-                <div class="testimonial-zone" style="max-width: 500px; text-align: center; font-style: italic; color: #555;">
                 </div>
 
                 <div class="cta-action-dock" style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 360px;">
