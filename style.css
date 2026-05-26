@@ -142,6 +142,17 @@ html, body {
     display: inline-block;
 }
 
+.hero-pitch {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    opacity: 0.7;
+    font-weight: 500;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
 .star-marker {
     font-size: clamp(1.5rem, 3vw, 3rem);
     position: absolute;
@@ -383,17 +394,9 @@ html, body {
 
 @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
 
-@media (max-width: 768px) {
-    .screen-page { padding: 2rem 1.5rem; }
-    .page-header-meta { grid-template-columns: 1fr 1fr; }
-    .mob-hide { display: none; }
-    .directory-list { grid-template-columns: 1fr; gap: 0.5rem; }
-    .media-row { grid-template-columns: 1fr; }
-    .index-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
-}
 /* EXTENDED VIDEO WORKSPACE STYLING */
 .video-card video {
-    pointer-events: none; /* Allows click logic to bypass to parent frame overlay cleanly */
+    pointer-events: none;
 }
 
 .video-play-indicator {
@@ -426,28 +429,7 @@ html, body {
     top: 0; left: 0;
     width: 100%; height: 100%;
 }
-/* EXTENDED BRAND STYLING FOR STATUS PILLS */
-.matrix-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.02); /* Clean industrial tracking highlight on cursor hover */
-}
 
-.story-prose strong {
-    color: var(--accent-color, #ff5376);
-    font-weight: 700;
-}
-
-.story-prose em {
-    color: #fff;
-    font-style: normal;
-    letter-spacing: 1px;
-    font-weight: 700;
-}
-
-/* Custom adjustment to make table wrap text neatly on medium screens */
-.matrix-table td {
-    white-space: normal;
-    line-height: 1.4;
-}
 /* ==========================================
    PAGE 3: EXPERIENCE WORKSPACE STYLING
    ========================================== */
@@ -475,18 +457,52 @@ html, body {
     padding-bottom: 8px;
 }
 
+.human-bio-paragraph {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.2px;
+    word-break: break-word;
+}
+
+/* Enforcing High Contrast dark grey/black color, larger size, and crisp reading */
 .story-prose {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: #ded9cf;
-    margin-bottom: 18px;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    color: #1a1a1a !important; /* Deep, crystal-clear high contrast text */
+    margin: 0 0 18px 0 !important;
+    text-align: left !important;
+    font-weight: 500;
     font-family: inherit;
-    text-align: justify;
 }
 
 .story-prose strong {
-    color: #fff;
+    color: #000000 !important;
     font-weight: 700;
+}
+
+.story-prose em {
+    color: #fff;
+    font-style: normal;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.story-points-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.log-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.log-prefix {
+    color: var(--accent-color, #ff5376);
+    font-size: 0.8rem;
+    margin-top: 4px;
 }
 
 /* COMPETENCY TAG CLOUD */
@@ -509,7 +525,6 @@ html, body {
 
 /* INDUSTRIAL MATRIX TABLE */
 .table-scroll-wrapper {
-    overflow-x: auto;
     width: 100%;
 }
 
@@ -547,6 +562,15 @@ html, body {
     color: #fff !important;
 }
 
+.table-inline-link {
+    color: #ff5376 !important;
+    text-decoration: none;
+    font-weight: 700;
+}
+.table-inline-link:hover {
+    text-decoration: underline;
+}
+
 /* STATUS CAPSULES */
 .status-pill {
     font-size: 0.65rem;
@@ -575,59 +599,6 @@ html, body {
     border: 1px solid rgba(0, 176, 255, 0.3);
 }
 
-/* RESPONSIVE OVERRIDES */
-@media (max-width: 768px) {
-    .experience-workspace {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-}
-/* ==========================================
-   HIGH-CONTRAST TYPOGRAPHY & LAYOUT FOR EXPERIENCE
-   ========================================== */
-.story-points-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 10px;
-}
-
-.log-point {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.log-prefix {
-    color: var(--accent-color, #ff5376);
-    font-size: 0.8rem;
-    margin-top: 4px;
-}
-
-/* Enforcing High Contrast dark grey/black color, larger size, and crisp reading */
-.story-prose {
-    font-size: 1.05rem !important;
-    line-height: 1.6 !important;
-    color: #1a1a1a !important; /* Deep, crystal-clear high contrast text */
-    margin: 0 !important;
-    text-align: left !important;
-    font-weight: 500;
-}
-
-.story-prose strong {
-    color: #000000 !important;
-    font-weight: 700;
-}
-
-/* Link styling inside the matrix grid */
-.table-inline-link {
-    color: #ff5376 !important;
-    text-decoration: none;
-    font-weight: 700;
-}
-.table-inline-link:hover {
-    text-decoration: underline;
-}
 /* ==========================================================================
    MOBILE & PORTRAIT VIEWPORT REMASTER ENGINE (MAX-WIDTH: 768px)
    ========================================================================== */
@@ -760,10 +731,11 @@ html, body {
     .matrix-table {
         width: 100% !important;
         min-width: 500px !important; /* Retains text clarity by preventing compression */
+        font-size: 0.8rem !important; /* Scale text down slightly on mobile */
     }
 
     .matrix-table th, .matrix-table td {
-        padding: 12px 10px !important;
+        padding: 8px 6px !important; /* Tighter padding for mobile space */
         font-size: 0.85rem !important;
     }
 
@@ -779,6 +751,7 @@ html, body {
         width: 100% !important;
         flex-direction: row !important;
         gap: 8px !important;
+        grid-template-columns: 1fr !important; /* Forces uniform item blocks */
     }
 
     .directory-item {
@@ -797,6 +770,12 @@ html, body {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 10px !important;
         max-height: none !important;
+    }
+
+    .index-row {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+        padding: 1.5rem 0 !important;
     }
 
     /* 6. Communication Suite Framework */
